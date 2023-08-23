@@ -1,6 +1,6 @@
 %define libname %mklibname KF6StatusNotifierItem
 %define devname %mklibname KF6StatusNotifierItem -d
-%define git 20230818
+%define git 20230823
 
 Name: kf6-kstatusnotifieritem
 Version: 5.240.0
@@ -70,7 +70,14 @@ KNotification is used to notify the user of an event.
 %install
 %ninja_install -C build
 
-%files
+# FIXME for some reason, find_lang misidentifies the language
+# for locale files as LC_MESSAGES, so let's
+# do it manually for now
+for i in %{buildroot}%{_datadir}/locale/*/*/*.qm; do
+	echo "%lang($(echo $i |rev |cut -d/ -f3 |rev)) /$(echo $i |rev |cut -d/ -f1-6 |rev)" >>%{name}.lang
+done
+
+%files -f %{name}.lang
 %{_datadir}/qlogging-categories6/kstatusnotifieritem.*
 %{_datadir}/dbus-1/interfaces/*.xml
 
