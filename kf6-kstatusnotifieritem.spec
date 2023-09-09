@@ -1,6 +1,6 @@
 %define libname %mklibname KF6StatusNotifierItem
 %define devname %mklibname KF6StatusNotifierItem -d
-%define git 20230901
+%define git 20230909
 
 Name: kf6-kstatusnotifieritem
 Version: 5.240.0
