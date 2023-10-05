@@ -1,6 +1,6 @@
 %define libname %mklibname KF6StatusNotifierItem
 %define devname %mklibname KF6StatusNotifierItem -d
-%define git 20230927
+%define git 20231005
 
 Name: kf6-kstatusnotifieritem
 Version: 5.240.0
@@ -84,7 +84,6 @@ done
 %files -n %{devname}
 %{_includedir}/KF6/KStatusNotifierItem
 %{_libdir}/cmake/KF6StatusNotifierItem
-%{_qtdir}/mkspecs/modules/qt_KStatusNotifierItem.pri
 %{_qtdir}/doc/KF6StatusNotifierItem.*
 
 %files -n %{libname}
