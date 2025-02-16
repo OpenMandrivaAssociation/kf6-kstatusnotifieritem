@@ -21,6 +21,9 @@ BuildRequires: cmake
 BuildRequires: cmake(ECM)
 BuildRequires: python
 BuildRequires: python%{pyver}dist(build)
+BuildRequires: pkgconfig(python3)
+BuildRequires: cmake(Shiboken6)
+BuildRequires: cmake(PySide6)
 BuildRequires: cmake(Qt6DBusTools)
 BuildRequires: cmake(Qt6DBus)
 BuildRequires: cmake(Qt6Network)
@@ -65,6 +68,14 @@ Development files (Headers etc.) for %{name}.
 
 KNotification is used to notify the user of an event.
 
+%package -n python-kstatusnotifieritem
+Summary: Python bindings to KStatusNotifierItem
+Group: Development/Python
+Requires: %{libname} = %{EVRD}
+
+%description -n python-kstatusnotifieritem
+Python bindings to KStatusNotifierItem
+
 %prep
 %autosetup -p1 -n kstatusnotifieritem-%{?git:master}%{!?git:%{version}}
 %cmake \
@@ -97,4 +108,6 @@ done
 
 %files -n %{libname}
 %{_libdir}/libKF6StatusNotifierItem.so*
+
+%files -n python-kstatusnotifieritem
 %{_libdir}/python%{pyver}/site-packages/KStatusNotifierItem.cpython-*.so
