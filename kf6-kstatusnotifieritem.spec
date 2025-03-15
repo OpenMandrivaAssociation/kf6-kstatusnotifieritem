@@ -6,7 +6,7 @@
 #define git 20240217
 
 Name: kf6-kstatusnotifieritem
-Version: 6.11.0
+Version: 6.12.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kstatusnotifieritem/-/archive/master/kstatusnotifieritem-master.tar.bz2#/kstatusnotifieritem-%{git}.tar.bz2
