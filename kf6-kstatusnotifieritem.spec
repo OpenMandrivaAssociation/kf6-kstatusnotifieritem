@@ -6,7 +6,7 @@
 #define git 20240217
 
 Name: kf6-kstatusnotifieritem
-Version: 6.27.0
+Version: 6.28.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kstatusnotifieritem/-/archive/master/kstatusnotifieritem-master.tar.bz2#/kstatusnotifieritem-%{git}.tar.bz2
@@ -77,7 +77,7 @@ Requires: %{libname} = %{EVRD}
 Python bindings to KStatusNotifierItem
 
 %prep
-%autosetup -p1 -n kstatusnotifieritem-%{?git:master}%{!?git:%{version}}
+%autosetup -p1 -n kstatusnotifieritem-6.28.0
 %cmake \
 	-DBUILD_QCH:BOOL=ON \
 	-DBUILD_WITH_QT6:BOOL=ON \
