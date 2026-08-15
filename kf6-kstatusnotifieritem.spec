@@ -6,7 +6,7 @@
 #define git 20240217
 
 Name: kf6-kstatusnotifieritem
-Version: 6.28.0
+Version: 6.29.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kstatusnotifieritem/-/archive/master/kstatusnotifieritem-master.tar.bz2#/kstatusnotifieritem-%{git}.tar.bz2
@@ -46,6 +46,8 @@ BuildRequires: cmake(Qt6Quick)
 BuildRequires: pkgconfig(dbusmenu-qt6)
 BuildRequires: pkgconfig(libcanberra)
 Requires: %{libname} = %{EVRD}
+BuildSystem:	cmake
+BuildOption:	-DBUILD_QCH:BOOL=ON
 
 %description
 Implementation of Status Notifier Items
@@ -76,19 +78,8 @@ Requires: %{libname} = %{EVRD}
 %description -n python-kstatusnotifieritem
 Python bindings to KStatusNotifierItem
 
-%prep
-%autosetup -p1 -n kstatusnotifieritem-6.28.0
-%cmake \
-	-DBUILD_QCH:BOOL=ON \
-	-DBUILD_WITH_QT6:BOOL=ON \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja
-
-%build
-%ninja_build -C build
-
 %install
-%ninja_install -C build
+%ninja_install -C _OMV_rpm_build
 
 # FIXME for some reason, find_lang misidentifies the language
 # for locale files as LC_MESSAGES, so let's
